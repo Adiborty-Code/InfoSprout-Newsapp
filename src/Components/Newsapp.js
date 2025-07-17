@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card'
 
 const Newsapp = () => {
-    const [search, setSearch] = useState("india");
+    const [search, setSearch] = useState("iit kharagpur");
     const [newsData, setNewsData] = useState(null);
     const API_KEY = "59314da8f5b648c8967d023bb7ad882a";
     const getData = async() =>{
@@ -20,25 +20,26 @@ const Newsapp = () => {
     }
     const userInput=(e)=>{
         setSearch(e.target.value)
+        getData(e.target.value)
     }
   return (
     <div>
         <nav>
             <div>
-                <h1>Trendy News</h1>
+                <h1>InfoSprout</h1>
             </div>
             <ul>
-                <a>All News</a>
-                <a>Trending</a>
+                <a>Fresh Picks</a>
+                <a>Popular</a>
 
             </ul>
             <div className='searchBar'>
-                <input type='text' placeholder='Search News' value={search} onChange={handleInput}/>
+                <input type='text' placeholder='Sprout some News here' value={search} onChange={handleInput}/>
                 <button onClick={getData}>Search</button>
             </div>
         </nav>
         <div>
-            <p className='head'>Stay Update with Trendy News</p>
+            <p className='head'>Stay Informed. Stay Sprouting.</p>
         </div>
         <div className='categoryBtn'>
             <button onClick={userInput} value='technology'>Technology</button>
